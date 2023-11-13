@@ -17,7 +17,7 @@ services:
     ports:
       - 3306:3306
 
-  soap:
+  soapapi:
     image: soap:ws
     volumes:
       - ./soap-server:/app

@@ -46,19 +46,19 @@
 * El entorno **Nodejs**
 * Clonar este repositorio
 
-## **Pasos a seguir para lograr de manera correcta el despliegue de los servicios**
+## Pasos a seguir para lograr de manera correcta el despliegue de los servicios
 
-### Ejecutar la aplicacion Docker Desktop. **Este paso es importante ya que es necesario tener iniciados los demonios de docker**
+* Ejecutar la aplicacion Docker Desktop. Este paso es importante ya que es necesario tener iniciados los demonios de docker
 
-### Abrir un **CLI** dentro del directorio clonado, debe estar ubicado al mismo nivel del fichero **"docker-stack-compose.yml"**
+* *Abrir un **CLI** dentro del directorio clonado, debe estar ubicado al mismo nivel del fichero **"docker-stack-compose.yml"**
 
-1. ## **Inicializamos docker swarm con el siguiente comando**
+1. **Inicializamos docker swarm con el siguiente comando**
 
       ```bash
         docker swarm init
       ```
 
-2. ## Ahora creamos las imagenes utilizando los ficheros Dockerfile especificos para cada servicio. **No es necesario cambiarse a cada uno de los directorios para ejecutar los siguientes comandos**
+2. **Ahora creamos las imagenes utilizando los ficheros Dockerfile especificos para cada servicio.**  No es necesario cambiarse a cada uno de los directorios para ejecutar los siguientes comandos.
 
    1. **Creamos primero la imagen de mysql a partir del fichero Dockerfile ubicado en el directorio imagenMysql**:
 
@@ -88,7 +88,7 @@
 
    5. **Luego de crear cada una de estas imagenes especificada en el 'docker-stack-compose.yml' podemos continuar**
 
-3. ## Desplegamos los servicios como parte de un stack en un entorno de Swarm. Ejecuta el siguiente comando
+3. **Desplegamos los servicios como parte de un stack en un entorno de Swarm. Ejecuta el siguiente comando**
 
       ```bash
         docker stack deploy -c docker-stack-compose.yml app
@@ -96,22 +96,22 @@
 
    * Además de los servicios, también se crea (por defecto) una red interna, la cual se comparte entre todos estos servicios.
 
-4. ## Deberian haberse creado los servicios con 1 réplica cada uno, excepto el servicio cliente al que se especifico 4 réplicas**
+4. **Deberían haberse creado los servicios con 1 réplica cada uno, excepto el servicio cliente al que se especifico 4 réplicas**
 
-5. ## **Puede verificar que los servicios se estan ejecutando correctamente usando el siguiente comando**
+5. **Puede verificar que los servicios se estan ejecutando correctamente usando el siguiente comando**
 
       ```bash
         docker service ls
       ```
 
-6. ## Pruebas
+6. **Pruebas**
 
     > Debería poder visualidar cada uno de los servicios desplegados.
     > Si todo está correcto, podría ver la tabla con los datos consultados, ademas del formulario para insertar nuevos registros**.
     >
     > Sólo debe abrir un navegador y ejecutar la siguiente direccion `http://localhost:3000`.
 
-7. ## Limpieza
+7. **Limpieza**
 
     * Luego de realizar las pruebas que crea necesarias, debe eliminar el Stack creado antes junto con los servicios desplegados dentro.
     * Ejecute el siguiente comando para eliminar el stack 'app' que se creo al momento de desplegar:
