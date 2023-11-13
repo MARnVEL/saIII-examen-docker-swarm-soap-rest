@@ -60,7 +60,7 @@
 
 2. **Ahora creamos las imagenes utilizando los ficheros Dockerfile específicos para cada servicio.**  No es necesario cambiarse a cada uno de los directorios para ejecutar los siguientes comandos.
 
-   1. **Creamos primero la imagen de mysql a partir del fichero Dockerfile ubicado en el directorio imagenMysql**:
+   1. **Creamos primero la imagen de mysql a partir del fichero Dockerfile ubicado en el directorio `mysql-img`**:
 
       ```bash
         docker build -t mysql:img ./mysql-img/
