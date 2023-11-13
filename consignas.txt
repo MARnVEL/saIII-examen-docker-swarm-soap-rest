@@ -1,0 +1,10 @@
+Paso 1 - Crear un servicio con swarm con 1 replica que contenga una base de datos mysql con una tabla llamada personas que contenga 3 campos Apellidos, Nombres, dni.
+Paso 2 - Crear un servicio con swarm con 1 replica que contenga una aplicación de servicio web REST que grabe en la tabla personas 1 registro apuntando a  http://localhost:8080/insertar_con_rest
+Paso 3 - Crear un servicio con swarm con 1 replica que contenga una aplicación de servicio web SOAP que consulte la tabla personas apuntando a  http://localhost:8888/consultar_con_soap
+Paso 4 - Crear un servicio con swarm con 4 replica que contenga una aplicación que consuma los Servicios Web SOAP y REST como se ve en la imagen.
+
+Debera subir los 4 Dockerfile para crear las 4 imagenes, el sql de creacion de la base de datos y la tabla, las aplicaciones publicadas de REST, SOAP y la la aplicacion del punto 4.
+Debera Describir en un README.txt paso a paso como contruir la solucion desde cero, con los nombres de las imagenes que utilizara en el yaml, con los comandos que debe ejecutar el devops para desplegar la solucion.
+
+Recomendaciones: Realice el trabajo de a poco, paso a paso contruya la imagenes y despliegue 1 contenedor con docker run en el puerto que corresponda
+para probar si la imagen y el contenedor funcionan correctamente eso ayudara a saber si al final, al construir el yaml, el despliegue con swarm funcionara correctamente.

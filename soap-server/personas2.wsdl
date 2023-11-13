@@ -1,0 +1,74 @@
+<definitions
+
+  name="PersonasService"
+  targetNamespace="http://soapapi:8888/personas.wsdl"
+  xmlns="http://schemas.xmlsoap.org/wsdl/"
+  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+  xmlns:tns="http://soapapi:8888/personas.wsdl"
+>
+  <types>
+      <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://soapapi:8888/personas.wsdl">
+
+        <element name="ConsultarPersonas">
+          <complexType />
+        </element>
+
+        <element name="ConsultarPersonasResponse">
+          <complexType>
+            <sequence>
+              <element name="Persona" type="tns:Persona" maxOccurs="unbounded" />
+            </sequence>
+          </complexType>
+        </element>
+
+        <complexType name="Persona">
+          <sequence>
+            <element name="apellidos" type="string" />
+            <element name="nombres" type="string" />
+            <element name="dni" type="number" />
+          </sequence>
+        </complexType>
+
+      </schema>
+  </types>
+
+  <message name="ConsultarPersonasRequest">
+    <part name="parameters" element="tns:ConsultarPersonas" />
+  </message>
+
+  <message name="ConsultarPersonasResponse">
+    <part name="parameters" element="tns:ConsultarPersonasResponse" />
+  </message>
+
+  <portType name="PersonasPort">
+    <operation name="ConsultarPersonas">
+      <input message="tns:ConsultarPersonasRequest" />
+      <output message="tns:ConsultarPersonasResponse" />
+    </operation>
+  </portType>
+
+  <binding name="PersonasPortBinding" type="tns:PersonasPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="ConsultarPersonas">
+      <soap:operation soapAction="http://soapapi:8888/personas.wsdl#ConsultarPersonas" style="document" />
+
+      <input>
+        <soap:body use="literal" />
+      </input>
+
+      <output>
+        <soap:body use="literal" />
+      </output>
+
+    </operation>
+  </binding>
+
+  <service name="PersonasService">
+    <port name="PersonasPort" binding="tns:PersonasPortBinding">
+      <soap:address location="http://soapapi:8888/consultar_con_soap" />
+    </port>
+  </service>
+
+</definitions>
+
+
