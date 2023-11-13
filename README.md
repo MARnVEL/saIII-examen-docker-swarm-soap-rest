@@ -48,9 +48,9 @@
 
 ## Pasos a seguir para lograr de manera correcta el despliegue de los servicios
 
-* Ejecutar la aplicacion Docker Desktop. Este paso es importante ya que es necesario tener iniciados los demonios de docker
+* Ejecutar la aplicacion Docker Desktop. Este paso es importante ya que es necesario tener iniciados los servicios de docker.
 
-* *Abrir un **CLI** dentro del directorio clonado, debe estar ubicado al mismo nivel del fichero **"docker-stack-compose.yml"**
+* Abrir un **CLI** dentro del directorio clonado, debe estar ubicado al mismo nivel del fichero **"docker-stack-compose.yml"**
 
 1. **Inicializamos docker swarm con el siguiente comando**
 
@@ -58,7 +58,7 @@
         docker swarm init
       ```
 
-2. **Ahora creamos las imagenes utilizando los ficheros Dockerfile especificos para cada servicio.**  No es necesario cambiarse a cada uno de los directorios para ejecutar los siguientes comandos.
+2. **Ahora creamos las imagenes utilizando los ficheros Dockerfile específicos para cada servicio.**  No es necesario cambiarse a cada uno de los directorios para ejecutar los siguientes comandos.
 
    1. **Creamos primero la imagen de mysql a partir del fichero Dockerfile ubicado en el directorio imagenMysql**:
 
@@ -121,7 +121,7 @@
       ```
 
     * Al eliminar el stack se eliminarán tambien la red que creo por defecto y los servicios que se estaban ejecutando dentro
-    * Si necesita eliminar tambien las imagenes creadas en los primeros pasos solo ejecute el siguiente comando**:
+    * Si necesita eliminar tambien las imagenes creadas en los primeros pasos solo ejecute el siguiente comando:
 
       ```bash
         docker rmi cliente:web rest:ws soap:ws mysql:img
